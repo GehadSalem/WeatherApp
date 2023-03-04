@@ -8,8 +8,8 @@ arrowBack = wrapper.querySelector("header i");
 
 let api;
 
-inputField.addEventListener("keyup", e =>{
-  if(e.key == "Enter" && inputField.value != ""){
+inputField.addEventListener("keypress", e =>{
+  if(e.key === "Enter" && inputField.value != ""){
     requestCityCode(inputField.value);
   }
 })
