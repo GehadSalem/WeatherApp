@@ -60,7 +60,7 @@ function onError(error){
 }
 
 async function requestCityCode(cityName){
-  let cityApi = await fetch(`http:api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=f98cbc6bb5757a3c281eda852f0640b8`).then(Response => Response.json());
+  let cityApi = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=f98cbc6bb5757a3c281eda852f0640b8`).then(Response => Response.json());
   // await fetch(cityApi).then(Response => console.log(Response.json()));
 
   let cityLat = await cityApi[0].lat;
