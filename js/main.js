@@ -1,7 +1,7 @@
 const wrapper = document.querySelector(".wrapper"),
 inpuPart = wrapper.querySelector(".input-part"),
 infoText = inpuPart.querySelector(".info-txt"),
-inputField = inpuPart.querySelector("input"),
+inputField = inpuPart.querySelector(".cityInput"),
 locationBtn = inpuPart.querySelector("button"),
 wIcon = wrapper.querySelector(".weather-part img"),
 arrowBack = wrapper.querySelector("header i");
@@ -23,8 +23,8 @@ locationBtn.addEventListener("click", function(){
 });
 
 async function onSuccess(position){
-  const{latitude, longitude} = position.coords;
-  api= await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=f98cbc6bb5757a3c281eda852f0640b8`).then(Response => Response.json());
+  const{lat, lon} = position.coords;
+  api= await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&appid=f98cbc6bb5757a3c281eda852f0640b8`).then(Response => Response.json());
 
   const city = api.name;
   const country = api.sys.country;
