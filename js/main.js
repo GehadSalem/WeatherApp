@@ -24,7 +24,7 @@ locationBtn.addEventListener("click", function(){
 
 async function onSuccess(position){
   const{latitude, longitude} = position.coords;
-  api= await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=de3688d3c6184610276ef545b72c8513`).then(Response => Response.json());
+  api= await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=f98cbc6bb5757a3c281eda852f0640b8`).then(Response => Response.json());
 
   const city = api.name;
   const country = api.sys.country;
@@ -60,12 +60,12 @@ function onError(error){
 }
 
 async function requestCityCode(cityName){
-  let cityApi = await fetch(`http:api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=de3688d3c6184610276ef545b72c8513`).then(Response => Response.json());
+  let cityApi = await fetch(`http:api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=f98cbc6bb5757a3c281eda852f0640b8`).then(Response => Response.json());
   // await fetch(cityApi).then(Response => console.log(Response.json()));
 
   let cityLat = await cityApi[0].lat;
   let cityLon = await cityApi[0].lon;
-  api = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${cityLat}&lon=${cityLon}&units=metric&appid=de3688d3c6184610276ef545b72c8513`).then(Response => Response.json());
+  api = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${cityLat}&lon=${cityLon}&units=metric&appid=f98cbc6bb5757a3c281eda852f0640b8`).then(Response => Response.json());
 
   const city = api.name;
   const country = api.sys.country;
